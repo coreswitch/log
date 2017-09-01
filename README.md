@@ -1,11 +1,11 @@
 # log
 
-log is a wrapper for logrus Go logging package. To help debugging, log added
+log is a wrapper for [logrus](https://github.com/sirupsen/logrus/) Go logging package. To help debugging, log added
 source code information and function name output to logrus.
 
 #### Example
 
-The simple example for enabling debug for DEBUG level and set output to stdout.
+The simple example for enabling debug level for DEBUG and set output to stdout.
 
 ```go
 package main
@@ -17,11 +17,12 @@ import (
 func main() {
   log.SetLevel("debug")
   log.SetOutput("stdout")
+
   log.With("animal", "walrus").Info("A walrus appears")
 }
 ```
 
-The example set JSON formatter.
+The example set formatter to JSON.
 
 ```go
 package main
@@ -33,11 +34,12 @@ import (
 func main() {
   log.SetLevel("debug")
   log.SetJSONFormatter()
+
   log.With("animal", "zebra").Debug("A zebra appears")
 }
 ```
 
-Source field and function field is configurable
+Source field and function field is configurable.
 
 ```go
 package main

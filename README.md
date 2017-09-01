@@ -1,7 +1,7 @@
 # log
 
 log is a wrapper for [logrus](https://github.com/sirupsen/logrus/) Go logging package. To help debugging, log added
-source code information and function name output to logrus.
+source code information and function name to logrus output.
 
 #### Example
 

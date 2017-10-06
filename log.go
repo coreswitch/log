@@ -64,9 +64,13 @@ func SetTextFormatter() {
 
 type Logger interface {
 	Debug(...interface{})
+	Debugf(string, ...interface{})
 	Info(...interface{})
+	Infof(string, ...interface{})
 	Warn(...interface{})
+	Warnf(string, ...interface{})
 	Error(...interface{})
+	Errorf(string, ...interface{})
 	With(key string, value interface{}) Logger
 }
 
@@ -108,16 +112,32 @@ func (l logger) Debug(args ...interface{}) {
 	l.sourced().Debug(args...)
 }
 
+func (l logger) Debugf(format string, args ...interface{}) {
+	l.sourced().Debugf(format, args...)
+}
+
 func (l logger) Info(args ...interface{}) {
 	l.sourced().Info(args...)
+}
+
+func (l logger) Infof(format string, args ...interface{}) {
+	l.sourced().Infof(format, args...)
 }
 
 func (l logger) Warn(args ...interface{}) {
 	l.sourced().Warn(args...)
 }
 
+func (l logger) Warnf(format string, args ...interface{}) {
+	l.sourced().Warnf(format, args...)
+}
+
 func (l logger) Error(args ...interface{}) {
 	l.sourced().Error(args...)
+}
+
+func (l logger) Errorf(format string, args ...interface{}) {
+	l.sourced().Errorf(format, args...)
 }
 
 func (l logger) With(key string, value interface{}) Logger {
@@ -132,14 +152,30 @@ func Debug(args ...interface{}) {
 	baseLogger.sourced().Debug(args...)
 }
 
+func Debugf(format string, args ...interface{}) {
+	baseLogger.sourced().Debugf(format, args...)
+}
+
 func Info(args ...interface{}) {
 	baseLogger.sourced().Info(args...)
+}
+
+func Infof(format string, args ...interface{}) {
+	baseLogger.sourced().Infof(format, args...)
 }
 
 func Warn(args ...interface{}) {
 	baseLogger.sourced().Warn(args...)
 }
 
+func Warnf(format string, args ...interface{}) {
+	baseLogger.sourced().Warnf(format, args...)
+}
+
 func Error(args ...interface{}) {
 	baseLogger.sourced().Error(args...)
+}
+
+func Errorf(format string, args ...interface{}) {
+	baseLogger.sourced().Errorf(format, args...)
 }
